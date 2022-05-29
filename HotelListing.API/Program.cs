@@ -40,7 +40,12 @@ builder.Services.AddAutoMapper(typeof(MapperConfig));
 
 // 6
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+
+// 7
 builder.Services.AddScoped<ICountriesRepository, CountriesRepository>();
+
+// 8
+builder.Services.AddScoped<IHotelsRepository, HotelsRepository>();
 
 var app = builder.Build();
 
