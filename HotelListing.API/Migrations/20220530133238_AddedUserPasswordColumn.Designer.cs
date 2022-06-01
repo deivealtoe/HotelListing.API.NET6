@@ -4,6 +4,7 @@ using HotelListing.API.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HotelListing.API.Migrations
 {
     [DbContext(typeof(HotelListingDbContext))]
-    partial class HotelListingDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220530133238_AddedUserPasswordColumn")]
+    partial class AddedUserPasswordColumn
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -62,6 +64,10 @@ namespace HotelListing.API.Migrations
                     b.Property<string>("NormalizedUserName")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PasswordHash")
                         .HasColumnType("nvarchar(max)");
@@ -220,15 +226,15 @@ namespace HotelListing.API.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "890f853b-f7e8-4a85-9ab1-4dd0108b272c",
-                            ConcurrencyStamp = "ac66adb7-4e27-4006-9541-45f09080202a",
+                            Id = "8802ed53-a186-491a-9dd1-1547a086f524",
+                            ConcurrencyStamp = "83c122d6-d3cd-4dff-a7eb-5e4abb0acf59",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         },
                         new
                         {
-                            Id = "da1c0379-7736-4ab6-a732-8b6b513a7317",
-                            ConcurrencyStamp = "68d968a0-77f9-4473-bbad-96c94f8f7302",
+                            Id = "0247953b-4db6-49bd-bfbb-efc9b78a600a",
+                            ConcurrencyStamp = "cb499c9c-66f2-495b-aff8-00f06a421013",
                             Name = "User",
                             NormalizedName = "USER"
                         });
